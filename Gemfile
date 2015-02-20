@@ -10,6 +10,8 @@ group :development, :test do
 	gem 'mysql2'
 end
 
+gem 'pg'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

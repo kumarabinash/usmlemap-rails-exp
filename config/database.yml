@@ -30,10 +30,10 @@ test:
   socket: /var/run/mysqld/mysqld.sock
 
 production:
-  adapter: mysql2
+  adapter: pg
   encoding: utf8
   database: usmlemap_production
   pool: 5
   username: root
-  password:
+  password: password
   socket: /var/run/mysqld/mysqld.sock
