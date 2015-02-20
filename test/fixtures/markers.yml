@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  marker_type: MyString
+  marker_content: MyText
+  lat: 43.2343
+  lng: 43.2342
+
+two:
+  marker_type: MyString
+  marker_content: MyText
+  lat: 43.232
+  lng: 32.22

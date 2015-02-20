@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Usmlemap</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="wrapper wrapper-fluid">
+
+<div class="navbar">
+  <nav>
+    <ul>
+      <li>
+        <%= link_to "Home", markers_path %>
+      </li>
+    </ul>
+    <ul>
+    <% if user_signed_in? %>
+      <li><%= link_to current_user.first_name, edit_user_registration_path %></li>
+      <li><%= link_to "Sign Out",  logout_path %></li>
+    <% else %>
+      <li><%= link_to "Register", register_path %></li>
+      <li><%= link_to "Signin", login_path %></li>
+    <% end %>
+    </ul>
+  </nav>
+</div>
+	
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+	<%= yield %>
+
+
+</div>
+
+
+</body>
+</html>

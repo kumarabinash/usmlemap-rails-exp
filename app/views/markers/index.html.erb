@@ -1,0 +1,36 @@
+<h1>Listing markers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Marker type</th>
+      <th>Marker content</th>
+      <th>Lat</th>
+      <th>Lng</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @markers.each do |marker| %>
+      <tr>
+        <td>
+          <%= image_tag marker.user.gravatar_url %>
+          <%= marker.marker_type %>
+        </td>
+        <td><%= marker.marker_content %></td>
+        <td><%= marker.lat %></td>
+        <td><%= marker.lng %></td>
+        <td><%= link_to 'Show', marker , class: 'button button-blue' %></td>
+        <td><%= link_to 'Edit', edit_marker_path(marker), class: 'button button-yellow' %></td>
+        <td><%= link_to 'Destroy', marker, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button button-red' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Marker', new_marker_path %>
