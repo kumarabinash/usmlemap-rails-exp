@@ -30,7 +30,7 @@ test:
   socket: /var/run/mysqld/mysqld.sock
 
 production:
-  adapter: pg
+  adapter: pgsql
   encoding: utf8
   database: usmlemap_production
   pool: 5
