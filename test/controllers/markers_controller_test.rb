@@ -53,6 +53,13 @@ class MarkersControllerTest < ActionController::TestCase
     assert_redirected_to marker_path(assigns(:marker))
   end
 
+  test "should update marker only for the current user " do
+    sign_in users(:kumar)
+    put :update, id: @marker, marker: { content: @marker.content, user_id: users(:saswati).id }
+    assert_redirected_to marker_path(assigns(:marker))
+    assert_equal assigns(:marker).user_id, users(:kumar).id
+  end
+
   test "should destroy marker" do
     assert_difference('Marker.count', -1) do
       delete :destroy, id: @marker

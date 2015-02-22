@@ -26,7 +26,7 @@ class MarkersController < ApplicationController
   # POST /markers
   # POST /markers.json
   def create
-    @marker = Marker.new(marker_params)
+    @marker = current_user.markers.new(marker_params)
 
     respond_to do |format|
       if @marker.save
@@ -42,6 +42,11 @@ class MarkersController < ApplicationController
   # PATCH/PUT /markers/1
   # PATCH/PUT /markers/1.json
   def update
+    @marker = current_user.markers.find(params[:id])
+    #params[:markers].delete(:user_id) if params[:markers].has_key?(:user_id)
+    if params[:markers] && params[:markers].has_key?(:user_id)
+      params[:markers].delete(:user_id)
+    end
     respond_to do |format|
       if @marker.update(marker_params)
         format.html { redirect_to @marker, notice: 'Marker was successfully updated.' }
