@@ -10,10 +10,16 @@ group :development, :test do
 	gem 'mysql2'
 end
 
+group :test do
+	gem 'shoulda'
+end
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
+gem 'state_machine'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

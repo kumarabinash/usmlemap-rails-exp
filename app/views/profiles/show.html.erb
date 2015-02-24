@@ -1,6 +1,9 @@
 <div class="page-header">
 	<h1><%= @user.first_name %></h1>
+	<%= link_to "Add Friend", new_user_friendship_path(friend_id: @user), class: 'button button-pink' %>
 </div>
+
+
 
 
 <% if @markers %>
@@ -11,5 +14,13 @@
 			<%= link_to time_ago_in_words(marker.created_at), marker_path(marker) %> ago
 
 		</div>
+	<% end %>
+<% end %>
+
+<p>Friends are</p>
+<% if @friends %>
+
+	<% @friends.each do |friend| %>
+		<%= friend.first_name %>
 	<% end %>
 <% end %>

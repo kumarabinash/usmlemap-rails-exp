@@ -17,7 +17,7 @@
     <% @markers.each do |marker| %>
       <tr>
         <td>
-          <%= image_tag marker.user.gravatar_url %>
+          <%= link_to image_tag(marker.user.gravatar_url), profile_path(marker.user) %>
           <%= marker.marker_type %>
         </td>
         <td><%= marker.marker_content %></td>

@@ -12,7 +12,9 @@ Usmlemap::Application.routes.draw do
     get "logout", :to => 'devise/sessions#destroy', as: :logout
   end
 
-  get '/:id', to: 'profiles#show'
+  get '/:id', to: 'profiles#show', as: 'profile'
+
+  resources :user_friendships
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
